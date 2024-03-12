@@ -1,0 +1,261 @@
+.container{
+    background-color: #d9e4eb;
+    display: grid;
+    grid-template-columns: minmax(225px, 250px) minmax(500px, 1400px) minmax(300px, 400px);
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+.header, .nav{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    background-color: #f1f1f1;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    padding: 20px;
+    gap: 20px;
+}
+
+.header .headSection1{
+    display: grid;
+    grid-template-columns: minmax(500px, 750px) minmax(0px, 700px);
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+ul{
+    list-style: none;
+}
+
+.sidebar{
+    background-color: #0091d5;
+}
+
+.sidebar div{
+    padding-left: 25px;
+    padding-top: 25px;
+}
+
+.sidebar ul a, .sidebar div{
+    text-decoration: none;
+    color: #f1f1f1;
+}
+
+.searchContainer{
+    display: flex;
+    flex-direction: row;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    justify-content: center;
+}
+
+#searchBar{
+    height: 30px;
+    border-radius: 15px;
+    font-size: 20px;
+    width: 450px;
+    background-color: #d9e4eb;
+ }
+
+.notificationContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    grid-column-start: 3;
+    align-items: center;
+}
+
+ #username{
+    width: 120px;
+ }
+
+ #searchLogo{
+    height: 30px;
+ }
+
+.header .icon, .sidebar .icon{
+    height: 30px;
+    width: auto;
+}
+
+.sidebar{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    display: grid;
+    grid-template-rows: .5fr 1fr 1fr;
+}
+
+.sidebar ul, .sidebar div{
+    font-size: 25px;
+}
+
+.sideSection1{
+    display: grid;
+    gap: 20px;
+}
+
+.sideSection2 li{
+    padding-top: 20px;
+}
+
+.nav{
+    display: grid;
+    grid-template-columns: minmax(500px, 750px) minmax(0px, 700px);
+    box-sizing: border-box;
+    overflow: auto;
+    gap: 0;
+    align-items: center;
+}
+
+.nav .icon{
+    height: 75px;
+    width: auto;
+}
+
+.navButtons{
+    display: flex;
+    flex-direction: row;
+    grid-column-start: 3;
+    gap: 20px;
+}
+
+.navButtons button{
+    border-style: none;
+    text-decoration: none;
+    color: #202020;
+    border-radius: 25px;
+    height: 35px;
+    width: 100px;
+    background-color: #0091d5;
+}
+
+.iconWelcomeContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-right: 200px;
+    gap: 15px;
+}
+
+.welcomeContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.welcomeContainer div{
+    font-size: 30px;
+}
+
+.welcomeContainer span{
+    font-size: 20px;
+}
+
+.content{
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.content div{
+    font-size: 20px;
+    padding: 20px;
+}
+
+.contentGrid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.contentGrid .gridItem{
+    background-color: #f1f1f1;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: #f1f1f1;
+    border-left-color: #EA6A47;
+    border-left-width: 10px;
+    padding-bottom: 0;
+}
+
+.contentGrid a{
+    text-decoration: none;
+    color: #202020;
+    font-weight: 600;
+}
+
+.gridItem{
+    display: flex;
+    flex-direction: column;
+}
+
+.gridItem div{
+    padding: 15px;
+}
+
+.gridItemIcons{
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+    justify-content: end;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.gridItemIcons .icon{
+    padding: 15px;
+}
+
+.gridItem .icon{
+    width: 20px;
+    height: auto;
+}
+
+.ad{
+    display: grid;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    margin: 20px;
+    padding: 20px;
+}
+
+.ad div{
+    font-size: 20px;
+}
+
+.adSection1, .adSection2{
+    background-color: #0091d5;
+    gap: 10px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.adSection1 .listHead{
+    font-size: 20px;
+    padding: 2px;
+    font-weight: 800;
+}
+
+.adSection2{
+    display: grid;
+    grid-template-columns: .1fr 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    column-gap: none;
+}
+
+.adSection2 .icon{
+    height: 40px;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.adSection2 li{
+    grid-column-start: 2;
+}

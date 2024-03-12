@@ -3,9 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Library</title>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="javascript.js" defer></script>
 </head>
 <body>
+    <div class="container">
+        <div class="header">
+            <div class="headSection1">
+                <div class="searchContainer">
+                    <img src="photos/search-icon.webp" id="searchLogo" class="icon">
+                    <input type="search" id="searchBar">
+                </div>
+                <div class="notificationContainer">
+                    <img src="photos/notifications-outline.svg" id="notificationLogo" class="icon">
+                    <img src="photos/avatar.svg" id="avatarLogo" class="icon">
+                    <div id="username">Jacob Silveira</div>
+                </div>
+            </div>
+            <div class="nav">
+                <div class="iconWelcomeContainer">
+                    <img src="photos/avatar.svg" id="avatarLogo" class="icon">
+                    <div class="welcomeContainer">
+                        <div>Hi there,</div>
+                        <span>Jacob Silveira (@jacob)</span>
+                    </div>
+                </div>
+
+                <div class="navButtons">
+                        <button id="newBtn">New</button>
+                        <button id="uploadBtn">Upload</button>
+                        <button id="shareBtn">Share</button>
+                </div>
+                
+            </div>
+        </div>
+        <div class="sidebar">
+            <div><img src="photos/dashboard.svg" class="icon"> Dashboard</div>
+            <ul class="sideSection1">
+                <li><a href="index.html"><img src="photos/home.png" class="icon"> Home</a></li>
+                <li><a href="index.html"><img src="photos/profile.png" class="icon"> Profile</a></li>
+                <li><a href="index.html"><img src="photos/messages.svg" class="icon"> Messages</a></li>
+                <li><a href="index.html"><img src="photos/history.webp" class="icon"> History</a></li>
+                <li><a href="index.html"><img src="photos/tasks.svg" class="icon"> Tasks</a></li>
+                <li><a href="index.html"><img src="photos/communities.png" class="icon"> Communities</a></li>
+            </ul>
+            <ul class="sideSection2">
+                <li><a href="index.html"><img src="photos/settings.png" class="icon"> Settings</a></li>
+                <li><a href="index.html"><img src="photos/support.png" class="icon"> Support</a></li>
+                <li><a href="index.html"><img src="photos/privacy.svg" class="icon"> Privacy</a></li>
+            </ul>
+        </div>
+        <div class="content">
+                <div>Your Projects</div>
+                <div class="contentGrid">
+                    <div class="gridItem"><a href="https://jake-silveira.github.io/odin-recipes/"> Odin Recipes</a><span>In my first project while following The Odin Project, I maade a recipe book where I learned to use basic HTML and CSS.</span>
+                        <ul class="gridItemIcons">
+                            <li><img src="photos/favorite.svg" class="icon"></li>
+                            <li><img src="photos/watch.svg" class="icon"></li>
+                            <li><img src="photos/share.svg" class="icon"></li>
+                        </ul>    
+                    </div>
+                    <div class="gridItem"><a href="https://jake-silveira.github.io/Landing_Page/">Landing Page</a><span>Clicking here will take you to my landing page where I learned more intermediate CSS with the flexbox and even linked my LinkedIn.</span>
+                        <ul class="gridItemIcons">
+                            <li><img src="photos/favorite.svg" class="icon"></li>
+                            <li><img src="photos/watch.svg" class="icon"></li>
+                            <li><img src="photos/share.svg" class="icon"></li>
+                        </ul>   
+                    </div>
+                    <div class="gridItem"><a href="https://jake-silveira.github.io/rock-paper-scissors/">Rock Paper Scissors</a><span>My third project was my introduction to JavaScript, where I made a simple game. There's a hidden option... See if you can find it!</span>
+                        <ul class="gridItemIcons">
+                            <li><img src="photos/favorite.svg" class="icon"></li>
+                            <li><img src="photos/watch.svg" class="icon"></li>
+                            <li><img src="photos/share.svg" class="icon"></li>
+                        </ul>   </div>
+                    <div class="gridItem"><a href="https://jake-silveira.github.io/Etch-a-Sketch/">Etch-a-Sketch</a><span>The Etch-a-Sketch project really tested my knowledge as I learned Javascript and I had a lot of fun creating functions.</span>
+                        <ul class="gridItemIcons">
+                            <li><img src="photos/favorite.svg" class="icon"></li>
+                            <li><img src="photos/watch.svg" class="icon"></li>
+                            <li><img src="photos/share.svg" class="icon"></li>
+                        </ul>   </div>
+                    <div class="gridItem"><a href="https://jake-silveira.github.io/calculator/">Calculator</a><span>The Calculator project pushed my limits even further with JavaScript and was a true test. Try and divide by Zero! </span>
+                        <ul class="gridItemIcons">
+                            <li><img src="photos/favorite.svg" class="icon"></li>
+                            <li><img src="photos/watch.svg" class="icon"></li>
+                            <li><img src="photos/share.svg" class="icon"></li>
+                        </ul>   </div>
+                    <div class="gridItem"><a href="https://jake-silveira.github.io/Sign-up-Form/">Sign Up Form</a><span>This project extended my knowledge of front end development with CSS and HTML  by using the grid property and input elements.</span>
+                        <ul class="gridItemIcons">
+                            <li><img src="photos/favorite.svg" class="icon"></li>
+                            <li><img src="photos/watch.svg" class="icon"></li>
+                            <li><img src="photos/share.svg" class="icon"></li>
+                        </ul>   </div>
+                </div>
+        </div>
+        <div class="ad">
+            <div>Announcements</div>
+            <ul class="adSection1">
+                <li class="listHead">Site Maintenance</li>
+                    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
+                <li class="listHead">Community Share Day</li>
+                    <div>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                <li class="listHead">Updated Privacy Policy</li>
+                    <div>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+            </ul>
+            <div>Trending</div>
+            <ul class="adSection2">
+                <img src="photos/tegan.svg" class="icon">
+                <li> @tegan<div>World Peace Builder</div></li>
+                <img src="photos/morgan.svg" class="icon">
+                <li> @morgan<div>Super Cool Project</div></li>
+                <img src="photos/kendall.svg" class="icon">
+                <li> @kendall<div>Life Changing App</div></li>
+                <img src="photos/alex.svg" class="icon">
+                <li> @alex<div>No Traffic Maker</div></li>
+            </ul>
+    </div>
     
 </body>
 </html>
