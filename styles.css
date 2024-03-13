@@ -78,6 +78,22 @@ ul{
     font-size: 20px;
  }
 
+  #username:link {
+    color: cyan;
+  }
+  
+  #username:visited {
+    color: green;
+  }
+  
+  #username:hover {
+    color: hotpink;
+  }
+
+  #username:active {
+    color: blue;
+  }
+
  #shareLogo:hover{
     cursor: pointer;
  }
