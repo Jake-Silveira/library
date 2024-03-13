@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="javascript.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -13,20 +13,19 @@
             <div class="headSection1">
                 <div class="searchContainer">
                     <img src="photos/search-icon.webp" id="searchLogo" class="icon">
-                    <input type="search" id="searchBar">
+                    <input type="search" id="searchBar" placeholder="Search Library">
                 </div>
                 <div class="notificationContainer">
-                    <img src="photos/notifications-outline.svg" id="notificationLogo" class="icon">
+                    <img src="photos/share.svg" id="shareLogo" class="icon" onclick="navigator.clipboard.writeText(window.location.href); alert('Website Copied to Clipboard!')" title="Click to Copy URL.">
                     <img src="photos/avatar.svg" id="avatarLogo" class="icon">
-                    <div id="username">Jacob Silveira</div>
+                    <a href="https://github.com/Jake-Silveira" id="username">Jacob Silveira</a>
                 </div>
             </div>
             <div class="nav">
                 <div class="iconWelcomeContainer">
                     <img src="photos/avatar.svg" id="avatarLogo" class="icon">
                     <div class="welcomeContainer">
-                        <div>Hi there,</div>
-                        <span>Jacob Silveira (@jacob)</span>
+                        <div>Welcome To Your Library!</div>
                     </div>
                 </div>
 
@@ -39,7 +38,7 @@
             </div>
         </div>
         <div class="sidebar">
-            <div><img src="photos/dashboard.svg" class="icon"> Dashboard</div>
+            <div><img src="photos/book.svg" class="icon"> Library</div>
             <ul class="sideSection1">
                 <li><a href="index.html"><img src="photos/home.png" class="icon"> Home</a></li>
                 <li><a href="index.html"><img src="photos/profile.png" class="icon"> Profile</a></li>
