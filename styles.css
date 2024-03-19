@@ -1,7 +1,7 @@
 .container{
     background-color: #d9e4eb;
     display: grid;
-    grid-template-columns: minmax(225px, 250px) minmax(500px, 1400px) minmax(300px, 400px);
+    grid-template-columns: minmax(225px, 250px) minmax(900px, 1400px) minmax(300px, 400px);
     box-sizing: border-box;
     overflow: auto;
 }
@@ -70,6 +70,7 @@ ul{
     gap: 20px;
     grid-column-start: 3;
     align-items: center;
+    justify-content: center;
 }
 
  #username{
@@ -121,7 +122,8 @@ ul{
 }
 
 .sideSection1{
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 20px;
 }
 
@@ -156,12 +158,13 @@ ul{
 
 .navButtons button{
     border-style: none;
-    text-decoration: none;
     color: #202020;
     border-radius: 25px;
     height: 35px;
     width: 100px;
     background-color: #0091d5;
+    font-size: 20px;
+    font-weight: 700;
 }
 
 .iconWelcomeContainer{
@@ -189,11 +192,25 @@ ul{
 .content{
     grid-column-start: 2;
     grid-column-end: 3;
+    grid-row: 2 / 4;
+    text-align: center;
 }
 
 .content div{
     font-size: 20px;
     padding: 20px;
+    text-align: center;
+}
+
+.background1{
+    position: relative;
+    grid-column: 2 / 3;
+    grid-row: 2 / 4;
+}
+
+.background2{
+    grid-column: 2 / 3;
+    grid-row: 4 / 6;
 }
 
 .contentGrid{
@@ -250,6 +267,7 @@ ul{
     display: grid;
     grid-column-start: 3;
     grid-column-end: 4;
+    grid-row: 2 /4;
     margin: 20px;
     padding: 20px;
 }
