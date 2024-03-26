@@ -1,4 +1,27 @@
-const myLibrary = [];
+const book1 = new Book('Divergent', 'Veronica Roth', 487, 'has been read');
+const book2 = new Book('Insurgent', 'Veronica Roth', 568, 'has been read');
+const book3 = new Book('Alegiant', 'Veronica Roth', 526, 'have not read yet');
+
+const myLibrary = [book1, book2, book3];
+
+const userForm = document.getElementById('newBtn');
+const content = document.querySelector('.contentGrid');
+
+function makeRows(rows, cols){
+  content.style.setProperty('--grid-rows', rows);
+  content.style.setProperty('--grid-cols', cols);
+
+  for(c = 0; c < (rows * cols); c++){
+    let cell = document.createElement('div');
+    content.appendChild(cell).className = "grid-item";
+    cell.id = "grid-item" + c;
+    cell.style.backgroundColor = 'grey';
+    cell.style.padding = '70px';
+    cell.textContent = myLibrary[c].info();
+  };
+};
+
+makeRows(4,4);
 
 function Book(title, author, pages, read) {
   this.title = title + ',';
@@ -6,10 +29,30 @@ function Book(title, author, pages, read) {
   this.pages = pages + ' pages, ';
   this.read = read + '.';
   this.info = function() {
-      return this.title + this.author + this.pages + this.read;
+    return this.title + this.author + this.pages + this.read;
   };
-}
+};
 
-function addBookToLibrary() {
-  // do stuff here
-}
+function addBookToLibrary(inputTitle, inputAuthor) {
+  const userBook = new Book(inputTitle, inputAuthor, "", "");
+  myLibrary.push(userBook);
+  
+  for (let i = 0; i < 30; i++) {
+    console.log(myLibrary[i])
+  };
+};
+
+userForm.addEventListener('click', () =>  {
+  let inputTitle = prompt('Enter a title');
+  let inputAuthor = prompt('Enter an Author');
+  addBookToLibrary(inputTitle, inputAuthor);
+});
+
+/*Book.prototype.sayHello = function() {
+  console.log("Hello, I'm a player!");
+};
+
+console.log(book1.info());
+console.log(book2.info()); 
+console.log(book3.info());
+book1.sayHello(); */

@@ -30,7 +30,7 @@ body{
 .header, .nav{
     grid-column-start: 2;
     grid-column-end: 4;
-    background-color: rgba(255, 187, 152, 0.6);
+    background-color: rgba(125, 142, 149, 0.4);
 }
 
 .header{
@@ -70,6 +70,11 @@ ul{
     text-align: center;
  }
 
+ #searchBar::placeholder{
+    color: #202020;
+    opacity: 1;
+ }
+
 .notificationContainer{
     display: flex;
     flex-direction: row;
@@ -86,15 +91,15 @@ ul{
  }
 
   #username:link {
-    color: cyan;
+    color: #202020
   }
   
   #username:visited {
-    color: rgba(52, 70, 72, 1);
+    color: #202020
   }
   
   #username:hover {
-    color: hotpink;
+    color: cyan;
   }
 
   #username:active {
@@ -167,6 +172,7 @@ ul{
 
 .welcomeContainer div{
     font-size: 30px;
+    color: #f1f1f1;
 }
 
 .welcomeContainer span{
@@ -219,13 +225,12 @@ ul{
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row: 2 / 4;
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
     text-align: center;
-}
-
-.content div{
-    font-size: 20px;
-    padding: 20px;
-    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .background1{
@@ -235,58 +240,33 @@ ul{
 }
 
 .background2{
+    position: relative;
     grid-column: 2 / 3;
     grid-row: 4 / 6;
 }
 
 .contentGrid{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.contentGrid .gridItem{
-    background-color: #f1f1f1;
-    border-style: solid;
-    border-radius: 10px;
-    border-color: #f1f1f1;
-    border-left-color: #EA6A47;
-    border-left-width: 10px;
-    padding-bottom: 0;
-}
-
-.contentGrid a{
-    text-decoration: none;
-    color: #202020;
-    font-weight: 600;
-}
-
-.gridItem{
-    display: flex;
-    flex-direction: column;
-}
-
-.gridItem div{
-    padding: 15px;
-}
-
-.gridItemIcons{
-    display: flex;
-    flex-direction: row;
-    padding: 15px;
-    justify-content: end;
-    align-items: center;
-    margin-bottom: 0;
-}
-
-.gridItemIcons .icon{
-    padding: 15px;
-}
-
-.gridItem .icon{
-    width: 20px;
+    position: absolute;
+    --grid-cols: 1;
+    --grid-rows: 1;
+    grid-column: 2 / 3;
+    grid-row: 2 / 6;
+    width: clamp(900px, 1400px);
     height: auto;
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    gap: 90px;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+.grid-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    font-size: 12px;
 }
 
 .ad{
