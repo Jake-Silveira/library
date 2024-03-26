@@ -225,11 +225,9 @@ ul{
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row: 2 / 4;
-    padding-top: 80px;
     display: flex;
     flex-direction: column;
     text-align: center;
-    justify-content: center;
     align-items: center;
 }
 
@@ -247,15 +245,13 @@ ul{
 
 .contentGrid{
     grid-column: 3 / 4;
-    grid-row: 2 / 6;
     display: grid;
     position: absolute;
     --grid-cols: 1;
     --grid-rows: 1;
     grid-template-rows: repeat(var(--grid-rows), 1fr);
     grid-template-columns: repeat(var(--grid-cols), 1fr);
-    grid-column: repeat(4(minmax(225px, 350px)));
-    gap: 60px;
+    gap: 30px;
     overflow: auto;
     box-sizing: border-box;
 }
