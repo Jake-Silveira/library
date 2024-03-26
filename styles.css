@@ -246,17 +246,16 @@ ul{
 }
 
 .contentGrid{
+    grid-column: 3 / 4;
+    grid-row: 2 / 6;
     display: grid;
     position: absolute;
     --grid-cols: 1;
     --grid-rows: 1;
-    grid-column: 2 / 3;
-    grid-row: 2 / 6;
-    width: clamp(900px, 1400px);
-    height: auto;
     grid-template-rows: repeat(var(--grid-rows), 1fr);
     grid-template-columns: repeat(var(--grid-cols), 1fr);
-    gap: 90px;
+    grid-column: repeat(4(minmax(225px, 350px)));
+    gap: 60px;
     overflow: auto;
     box-sizing: border-box;
 }
@@ -266,7 +265,7 @@ ul{
     align-items: center;
     justify-content: center;
     border-radius: 5px;
-    font-size: 12px;
+    font-size: 20px;
 }
 
 .ad{

@@ -16,9 +16,11 @@ function makeRows(rows, cols){
     content.appendChild(cell).className = "grid-item";
     cell.id = "grid-item" + c;
     cell.style.backgroundColor = 'grey';
-    cell.style.padding = '70px';
-    cell.textContent = myLibrary[c].info();
+    cell.style.padding = '45px';
+    cell.style.opacity = '0'
   };
+
+  displayBooks();
 };
 
 makeRows(4,4);
@@ -36,10 +38,7 @@ function Book(title, author, pages, read) {
 function addBookToLibrary(inputTitle, inputAuthor) {
   const userBook = new Book(inputTitle, inputAuthor, "", "");
   myLibrary.push(userBook);
-  
-  for (let i = 0; i < 30; i++) {
-    console.log(myLibrary[i])
-  };
+  displayBooks();
 };
 
 userForm.addEventListener('click', () =>  {
@@ -47,6 +46,15 @@ userForm.addEventListener('click', () =>  {
   let inputAuthor = prompt('Enter an Author');
   addBookToLibrary(inputTitle, inputAuthor);
 });
+
+function displayBooks(){
+  for (let i = 0; i < 16; i++) {
+    if(typeof myLibrary[i] !== 'undefined'){
+    document.getElementById('grid-item' + i).textContent = myLibrary[i].info();
+    document.getElementById('grid-item' + i).style.opacity = '100';
+  };
+};
+};
 
 /*Book.prototype.sayHello = function() {
   console.log("Hello, I'm a player!");
