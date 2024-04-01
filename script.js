@@ -1,4 +1,4 @@
-const book1 = new Book('Divergent testing', 'Veronica Roth', 487, 'has been read');
+const book1 = new Book('Divergent', 'Veronica Roth', 487, 'has been read');
 const book2 = new Book('Insurgent', 'Veronica Roth', 568, 'has been read');
 const book3 = new Book('Alegiant', 'Veronica Roth', 526, 'have not read yet');
 
@@ -9,15 +9,16 @@ const content = document.querySelector('.contentGrid');
 
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
-const openModalBtn = document.querySelector(".btn-open");
 const closeModalBtn = document.querySelector(".btn-close");
+const bookTitle = document.querySelector(".bookTitle");
+const bookInfo = document.querySelector(".bookInfo");
 
-const openModal = function () {
+const openModal = function (title, info) {
+  bookTitle.textContent = title;
+  bookInfo.textContent = info;
   modal.classList.remove("hidden");
   overlay.classList.remove("hidden");
 };
-
-openModalBtn.addEventListener("click", openModal);
 
 const closeModal = function () {
   modal.classList.add("hidden");
@@ -50,7 +51,7 @@ function Book(title, author, pages, read) {
   this.pages = pages;
   this.read = read;
   this.info = function() {
-    return this.title + ", by "  + this.author + ", " + this.pages + ", " + this.read;
+    return this.author;
   };
 };
 
@@ -76,6 +77,9 @@ function displayBooks(){
       cell.style.opacity = '100';
       cell.textContent = String(myLibrary[i].title).substring(0, 10);
       cell.appendChild(icon);
+      cell.addEventListener("click", () => {
+        openModal(myLibrary[i].title, myLibrary[i].author);
+      });
   };
 };
 };

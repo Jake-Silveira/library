@@ -270,6 +270,10 @@ ul{
     font-size: 20px;
 }
 
+.grid-item:hover{
+    cursor: pointer;
+}
+
 .grid-item-icon{
     width: 70px;
     height: auto;
@@ -370,11 +374,6 @@ ul{
     border-radius: 5px;
     text-align: center;
     font-size: 1em;
-  }
-  
-  .btn-open {
-    position: absolute;
-    bottom: 150px;
   }
   
   .btn-close {
