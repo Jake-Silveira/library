@@ -1,8 +1,19 @@
 const book1 = new Book('Divergent', 'Veronica Roth', 487, 'has been read');
 const book2 = new Book('Insurgent', 'Veronica Roth', 568, 'has been read');
-const book3 = new Book('Alegiant', 'Veronica Roth', 526, 'have not read yet');
+const book3 = new Book('Alegiant', 'Veronica Roth', 526, 'has not read yet');
+const book4 = new Book('Alegiant', 'Veronica Roth', 526, 'has not read yet');
+const book5 = new Book('Alegiant', 'Veronica Roth', 526, 'has not read yet');
+const book6 = new Book('Alegiant', 'Veronica Roth', 526, 'has not read yet');
+const book7 = new Book('Alegiant', 'Veronica Roth', 526, 'has not read yet');
+const book8 = new Book('Alegiant', 'Veronica Roth', 526, 'has not read yet');
+const book9 = new Book('Alegiant', 'Veronica Roth', 526, 'has not read yet');
+const book10 = new Book('Alegiant', 'Veronica Roth', 526, 'has not read yet');
+const book11 = new Book('Alegiant', 'Veronica Roth', 526, 'has not read yet');
+const book12 = new Book('Alegiant', 'Veronica Roth', 526, 'has not read yet');
+const book13 = new Book('Alegiant', 'Veronica Roth', 526, 'has not read yet');
+const book14 = new Book('Alegiant', 'Veronica Roth', 526, 'has not read yet');
 
-const myLibrary = [book1, book2, book3];
+const myLibrary = [book1, book2, book3, book4, book5, book6, book7, book8, book9, book10, book11, book12, book13, book14];
 
 const userForm = document.getElementById('newBtn');
 const content = document.querySelector('.contentGrid');
@@ -37,7 +48,7 @@ function makeRows(rows, cols){
     let cell = document.createElement('div');
     content.appendChild(cell).className = "grid-item";
     cell.id = "grid-item" + c;
-    cell.style.padding = '30px';
+    cell.style.padding = '10px';
     cell.style.opacity = '0';
   };
   displayBooks();

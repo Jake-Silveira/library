@@ -256,7 +256,7 @@ ul{
     --grid-rows: 1;
     grid-template-rows: repeat(var(--grid-rows), 1fr);
     grid-template-columns: repeat(var(--grid-cols), 1fr);
-    gap: 10px;
+    gap: 50px;
     overflow: auto;
     box-sizing: border-box;
 }
