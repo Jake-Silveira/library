@@ -11,11 +11,11 @@ const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 const closeModalBtn = document.querySelector(".btn-close");
 const bookTitle = document.querySelector(".bookTitle");
-const bookInfo = document.querySelector(".bookInfo");
+const bookAuthor = document.querySelector(".bookAuthor");
 
-const openModal = function (title, info) {
+const openModal = function (title, author) {
   bookTitle.textContent = title;
-  bookInfo.textContent = info;
+  bookAuthor.textContent = author;
   modal.classList.remove("hidden");
   overlay.classList.remove("hidden");
 };
