@@ -1,4 +1,4 @@
-const book1 = new Book('Divergent', 'Veronica Roth', 487, 'has been read');
+const book1 = new Book('Divergent testing', 'Veronica Roth', 487, 'has been read');
 const book2 = new Book('Insurgent', 'Veronica Roth', 568, 'has been read');
 const book3 = new Book('Alegiant', 'Veronica Roth', 526, 'have not read yet');
 
@@ -6,6 +6,27 @@ const myLibrary = [book1, book2, book3];
 
 const userForm = document.getElementById('newBtn');
 const content = document.querySelector('.contentGrid');
+
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
+const openModalBtn = document.querySelector(".btn-open");
+const closeModalBtn = document.querySelector(".btn-close");
+
+const openModal = function () {
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+};
+
+openModalBtn.addEventListener("click", openModal);
+
+const closeModal = function () {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+};
+
+closeModalBtn.addEventListener("click", closeModal);
+overlay.addEventListener("click", closeModal);
+document.addEventListener("keydown", closeModal);
 
 function makeRows(rows, cols){
   content.style.setProperty('--grid-rows', rows);
@@ -15,8 +36,7 @@ function makeRows(rows, cols){
     let cell = document.createElement('div');
     content.appendChild(cell).className = "grid-item";
     cell.id = "grid-item" + c;
-    cell.style.backgroundColor = 'grey';
-    cell.style.padding = '40px';
+    cell.style.padding = '30px';
     cell.style.opacity = '0';
   };
   displayBooks();
@@ -25,12 +45,12 @@ function makeRows(rows, cols){
 makeRows(6,6);
 
 function Book(title, author, pages, read) {
-  this.title = title + ',';
-  this.author = ' by ' + author + ', ';
-  this.pages = pages + ' pages, ';
-  this.read = read + '.';
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.read = read;
   this.info = function() {
-    return this.title + this.author + this.pages + this.read;
+    return this.title + ", by "  + this.author + ", " + this.pages + ", " + this.read;
   };
 };
 
@@ -49,11 +69,17 @@ userForm.addEventListener('click', () =>  {
 function displayBooks(){
   for (let i = 0; i < 36; i++) {
     if(typeof myLibrary[i] !== 'undefined'){
-    document.getElementById('grid-item' + i).textContent = myLibrary[i].title;
-    document.getElementById('grid-item' + i).style.opacity = '100';
+      let cell = document.getElementById('grid-item' + i);
+      let icon = document.createElement('img');
+      icon.className = 'grid-item-icon';
+      icon.src = 'photos/book.svg';
+      cell.style.opacity = '100';
+      cell.textContent = String(myLibrary[i].title).substring(0, 10);
+      cell.appendChild(icon);
   };
 };
 };
+
 
 /*Book.prototype.sayHello = function() {
   console.log("Hello, I'm a player!");
