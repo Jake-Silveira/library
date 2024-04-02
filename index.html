@@ -84,18 +84,23 @@
 
     <section class="modal hidden">
         <div class="flex">
-          <img src="photos/book.svg" width="50px" height="50px" alt="user" />
+          <img src="photos/book.svg" width="50px" height="50px" alt="booklogo" />
+          <h3 class="bookTitle"></h3>
           <button class="btn-close">⨉</button>
         </div>
-        <div>
-          <h3 class="bookTitle"></h3>
-          <p class="bookAuthor">
-            
-          </p>
+        
+        <div class="bookInfo">
+            <p class="bookAuthor"></p>
+            <p class="bookPages"></p>
+            <fieldset>
+                <input type="radio" id="read" name="opt1" value="read">
+                <label for="read">Read</label>
+                <input type="radio" id="unread" name="opt2" value="unread">
+                <label for="unread">Unread</label>
+                <input type="radio" id="in-progress" name="opt3" value="in-progress">
+                <label for="in-progress">In-Progress</label>
+            </fieldset>
         </div>
-      
-        <input type="email" id="email" placeholder="brendaneich@js.com" />
-        <button class="btn">Submit</button>
       </section>
       
       <div class="overlay hidden"></div>
