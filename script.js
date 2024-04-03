@@ -27,6 +27,7 @@ const bookPages = document.querySelector(".bookPages");
 const bookRead = document.getElementById('read');
 const bookUnread = document.getElementById('unread');
 const bookInProgress =document.getElementById('in-progress');
+const bookColor = document.getElementById('bookColor');
 
 function makeRows(rows, cols){
   content.style.setProperty('--grid-rows', rows);
@@ -74,20 +75,27 @@ function displayBooks(){
       icon.className = 'grid-item-icon';
       icon.id = 'grid-item-icon' + i;
       icon.src = 'photos/book.svg';
+      icon.style.backgroundColor = "#011111";
       cell.style.opacity = '100';
       cell.textContent = String(myLibrary[i].title).substring(0, 10);
       cell.appendChild(icon);
       cell.addEventListener("click", () => {
-        openModal(myLibrary[i].title, myLibrary[i].author, myLibrary[i].pages, myLibrary[i].read);
+        openModal(myLibrary[i].title, myLibrary[i].author, myLibrary[i].pages, myLibrary[i].read, i);
       });
   };
 };
 };
 
-const openModal = function (title, author, pages, read) {
+const changeColor = function(icon){
+  icon.style.backgroundColor = bookColor.value;
+}
+
+const openModal = function (title, author, pages, read, arrayIndex) {
+  let icon = document.getElementById('grid-item-icon' + arrayIndex);
   bookTitle.textContent = title;
-  bookAuthor.textContent = author;
-  bookPages.textContent = pages;
+  bookAuthor.textContent = "Author: " + author;
+  bookPages.textContent = pages + " Pages";
+  bookColor.addEventListener("change", changeColor(icon));
   if(read == 'read'){
     bookRead.checked = true;
     bookUnread.checked = false;
@@ -103,7 +111,29 @@ const openModal = function (title, author, pages, read) {
   }
   modal.classList.remove("hidden");
   overlay.classList.remove("hidden");
+
+  bookRead.addEventListener("click", function(){
+    bookUnread.checked = false;
+    bookInProgress.checked = false;
+    myLibrary[arrayIndex].read = "read";
+  });
+
+  bookUnread.addEventListener("click", () => {
+    bookRead.checked = false;
+    bookInProgress.checked = false;
+    myLibrary[arrayIndex].read = "unread";
+  });
+
+  bookInProgress.addEventListener("click", () =>{
+    bookRead.checked = false;
+    bookUnread.checked = false;
+    myLibrary[arrayIndex].read = "in-progress";
+  });
 };
+
+
+
+
 
 const closeModal = function () {
   modal.classList.add("hidden");
@@ -112,18 +142,6 @@ const closeModal = function () {
 
 closeModalBtn.addEventListener("click", closeModal);
 overlay.addEventListener("click", closeModal);
-bookRead.addEventListener("click", () => {
-  bookUnread.checked = false;
-  bookInProgress.checked = false;
-});
-bookUnread.addEventListener("click", () => {
-  bookRead.checked = false;
-  bookInProgress.checked = false;
-});
-bookInProgress.addEventListener("click", () =>{
-  bookRead.checked = false;
-  bookUnread.checked = false;
-});
 
 
 
