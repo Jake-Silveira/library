@@ -28,6 +28,7 @@ const bookRead = document.getElementById('read');
 const bookUnread = document.getElementById('unread');
 const bookInProgress =document.getElementById('in-progress');
 const bookColor = document.getElementById('bookColor');
+const cellIndex = document.querySelector('.index');
 
 function makeRows(rows, cols){
   content.style.setProperty('--grid-rows', rows);
@@ -86,16 +87,18 @@ function displayBooks(){
 };
 };
 
-const changeColor = function(icon){
-  icon.style.backgroundColor = bookColor.value;
-}
+const changeColor = function(event){
+  let icon = document.getElementById('grid-item-icon' + cellIndex.textContent);
+  icon.style.backgroundColor = event.target.value;
+};
 
 const openModal = function (title, author, pages, read, arrayIndex) {
-  let icon = document.getElementById('grid-item-icon' + arrayIndex);
+  cellIndex.textContent = arrayIndex;
+  cellIndex.style.visibility = "hidden";
   bookTitle.textContent = title;
   bookAuthor.textContent = "Author: " + author;
   bookPages.textContent = pages + " Pages";
-  bookColor.addEventListener("change", changeColor(icon));
+  bookColor.addEventListener("input", changeColor, false);
   if(read == 'read'){
     bookRead.checked = true;
     bookUnread.checked = false;
