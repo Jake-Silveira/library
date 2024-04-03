@@ -76,7 +76,6 @@ function displayBooks(){
       icon.className = 'grid-item-icon';
       icon.id = 'grid-item-icon' + i;
       icon.src = 'photos/book.svg';
-      icon.style.backgroundColor = "#011111";
       cell.style.opacity = '100';
       cell.textContent = String(myLibrary[i].title).substring(0, 10);
       cell.appendChild(icon);
