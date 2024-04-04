@@ -46,15 +46,11 @@ function makeRows(rows, cols){
 
 makeRows(6,6);
 
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.info = function() {
-    return this.author;
-  };
-};
+userForm.addEventListener('click', () =>  {
+  let inputTitle = prompt('Enter a title');
+  let inputAuthor = prompt('Enter an Author');
+  addBookToLibrary(inputTitle, inputAuthor);
+});
 
 function addBookToLibrary(inputTitle, inputAuthor) {
   const userBook = new Book(inputTitle, inputAuthor, "", "");
@@ -62,11 +58,17 @@ function addBookToLibrary(inputTitle, inputAuthor) {
   displayBooks();
 };
 
-userForm.addEventListener('click', () =>  {
-  let inputTitle = prompt('Enter a title');
-  let inputAuthor = prompt('Enter an Author');
-  addBookToLibrary(inputTitle, inputAuthor);
-});
+function Book(title, author, pages, read) {
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.read = read;
+  this.color = "";
+  this.info = function() {
+    return this.author;
+  };
+};
+
 
 function displayBooks(){
   for (let i = 0; i < 36; i++) {
@@ -86,11 +88,6 @@ function displayBooks(){
       };
     };
   };
-};
-
-const changeColor = function(event){
-  let icon = document.getElementById('grid-item-icon' + cellIndex.textContent);
-  icon.style.backgroundColor = event.target.value;
 };
 
 const openModal = function (title, author, pages, read, arrayIndex) {
@@ -135,9 +132,11 @@ const openModal = function (title, author, pages, read, arrayIndex) {
   });
 };
 
-
-
-
+const changeColor = function(event){
+  let icon = document.getElementById('grid-item-icon' + cellIndex.textContent);
+  myLibrary[cellIndex.textContent].color = event.target.value;
+  icon.style.backgroundColor = event.target.value;
+};
 
 const closeModal = function () {
   modal.classList.add("hidden");
