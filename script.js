@@ -72,18 +72,20 @@ function displayBooks(){
   for (let i = 0; i < 36; i++) {
     if(typeof myLibrary[i] !== 'undefined'){
       let cell = document.getElementById('grid-item' + i);
-      let icon = document.createElement('img');
-      icon.className = 'grid-item-icon';
-      icon.id = 'grid-item-icon' + i;
-      icon.src = 'photos/book.svg';
-      cell.style.opacity = '100';
-      cell.textContent = String(myLibrary[i].title).substring(0, 10);
-      cell.appendChild(icon);
-      cell.addEventListener("click", () => {
-        openModal(myLibrary[i].title, myLibrary[i].author, myLibrary[i].pages, myLibrary[i].read, i);
-      });
+        if(cell.style.opacity < 100){
+          let icon = document.createElement('img');
+          icon.className = 'grid-item-icon';
+          icon.id = 'grid-item-icon' + i;
+          icon.src = 'photos/book.svg';
+          cell.style.opacity = '100';
+          cell.textContent = String(myLibrary[i].title).substring(0, 10);
+          cell.appendChild(icon);
+          cell.addEventListener("click", () => {
+            openModal(myLibrary[i].title, myLibrary[i].author, myLibrary[i].pages, myLibrary[i].read, i);
+        });
+      };
+    };
   };
-};
 };
 
 const changeColor = function(event){
