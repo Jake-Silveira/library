@@ -319,7 +319,7 @@ ul{
 .adSection2 .icon{
     height: 40px;
     grid-column-start: 1;
-    grid-column-end: 2;
+    justify-self: center;
 }
 
 .adSection2 li{
