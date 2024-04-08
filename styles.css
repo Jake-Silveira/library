@@ -73,15 +73,15 @@ ul{
 }
 
 #searchLogo{
-    height: 5vh;
-    width: auto;
+    width: 2vw;
+    height: 2vw;
  }
 
 #searchBar{
-    height: 5vh;
     border-radius: 2em;
-    font-size: 3vh;
-    width: 100%;
+    font-size: 1.5vw;
+    width: 60vw;
+    height: 2vw;
     background-color: rgba(255, 187, 152, 0.01);
     text-align: center;
  }
@@ -94,16 +94,16 @@ ul{
 .notificationContainer{
     display: flex;
     flex-direction: row;
-    gap: .5em;
+    gap: 3vw;
     grid-column-start: 3;
     align-items: center;
     justify-content: center;
 }
 
  #username{
-    width: 6em;
+    width: 6vw;
     text-decoration: none;
-    font-size: 3vh;
+    font-size: 1vw;
  }
 
   #username:link {
@@ -146,8 +146,8 @@ ul{
 }
 
 .nav .icon{
-    height: 9vh;
-    width: auto;
+    width: 3vw;
+    height: auto;
 }
 
 .navButtons{
@@ -162,10 +162,10 @@ ul{
     border-style: none;
     color: #202020;
     border-radius: 2em;
-    height: 5vh;
+    height: 2vw;
     width: 15vw;
     background-color: rgba(125, 142, 149, 1);
-    font-size: 3vh;
+    font-size: 1.5vw;
     font-weight: 700;
 }
 
@@ -184,7 +184,7 @@ ul{
 }
 
 .welcomeContainer div{
-    font-size: 4vh;
+    font-size: 2vw;
     color: #f1f1f1;
 }
 
@@ -251,9 +251,10 @@ ul{
     --grid-rows: 1;
     grid-template-rows: repeat(var(--grid-rows), 1fr);
     grid-template-columns: repeat(var(--grid-cols), 1fr);
-    gap: 3vw;
+    gap: 2.3vw;
     overflow: auto;
     box-sizing: border-box;
+    padding-left: 3vw;
 }
 
 .grid-item{
@@ -270,8 +271,8 @@ ul{
 }
 
 .grid-item-icon{
-    height: 8vh;
-    width: auto;
+    width: 4vw;
+    height: auto;
     border-radius: .8vw;
 }
 

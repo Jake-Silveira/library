@@ -38,7 +38,7 @@ function makeRows(rows, cols){
     let cell = document.createElement('div');
     content.appendChild(cell).className = "grid-item";
     cell.id = "grid-item" + c;
-    cell.style.padding = '10px';
+    cell.style.padding = '1vw';
     cell.style.opacity = '0';
   };
   displayBooks();
