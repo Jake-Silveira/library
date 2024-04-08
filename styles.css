@@ -334,13 +334,22 @@ ul{
     flex-direction: column;
     gap: 1vw;
     padding: 1vw;
-    min-width: 450px;
+    width: 50%;
     position: absolute;
     top: 20%;
     background-color: rgba(125, 142, 149, 1);
     border: 1px solid #ddd;
-    border-radius: 15px;
+    border-radius: 2vw;
     z-index: 2;
+  }
+
+  .modal img{
+    width: 4vw;
+    height: auto;
+  }
+
+  .modal h3{
+    font-size: 3vw;
   }
   
   .modal .flex {
@@ -350,20 +359,32 @@ ul{
   }
 
   .btn-close {
-    padding: 0.5rem 0.7rem;
+    padding: .3vw .3vw;
     background: #eee;
     border-radius: 50%;
   }
   
   .modal p {
-    font-size: 1.25rem;
+    font-size: 2vw;
     color: #202020;
-    margin: 0.4rem 0 0.2rem;
+    margin: .4vw 0 .2vw;
+  }
+
+  .modal .inputColor{
+    width: 6vw;
+    height: 8vh;
+    padding: 0%;
+    border: 0%;
+  }
+
+  .modal .inputRadio{
+    width: 2vw;
+    height: auto;
   }
 
   .modal fieldset{
     border-style: none;
-    font-size: 1.25rem;
+    font-size: 1.6vw;
   }
 
   .overlay {
