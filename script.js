@@ -18,7 +18,17 @@ const myLibrary = [book1, book2, book3, book4, book5, book6, book7, book8, book9
 const addBtn = document.getElementById('newBtn');
 const content = document.querySelector('.contentGrid');
 
-const userForm = document.querySelector('.userForm')
+const userForm = document.querySelector('.userForm');
+const userTitle = document.getElementById('userTitle');
+const userAuthor = document.getElementById('userAuthor');
+const userPages = document.getElementById('userPages');
+const userColor = document.getElementById('userColor');
+const userRead = document.getElementById('userRead');
+const userUnread = document.getElementById('userUnread');
+const userInProgress = document.getElementById('userIn-progress');
+const submitBtn = document.querySelector('.btn-submit');
+
+
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 const closeModalBtn = document.querySelector(".btn-close");
@@ -48,24 +58,63 @@ function makeRows(rows, cols){
 
 makeRows(6,6);
 
+
+let inputTitle = userTitle;
+let inputAuthor = userAuthor;
+let inputPages = userPages;
+var inputRead;
+let inputColor = toString(userColor.value);
+
+
 addBtn.addEventListener('click', () =>  {
-  userForm.classList.remove("hidden");
-  overlay.classList.remove("hidden");
-  /*addBookToLibrary(inputTitle, inputAuthor);*/
+  openUserForm();
 });
 
-function addBookToLibrary(inputTitle, inputAuthor) {
-  const userBook = new Book(inputTitle, inputAuthor, "", "");
+const openUserForm = function(){
+  inputTitle.value = "";
+  inputAuthor.value = "";
+  inputPages.value = "";
+  userForm.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+
+
+  userRead.addEventListener("click", function(){
+    userUnread.checked = false;
+    userInProgress.checked = false;
+    let inputRead = "read";
+  });
+
+  userUnread.addEventListener("click", () => {
+    userRead.checked = false;
+    userInProgress.checked = false;
+    let inputRead = "unread";
+  });
+
+  userInProgress.addEventListener("click", () =>{
+    userRead.checked = false;
+    userUnread.checked = false;
+    let inputRead = "in-progress";
+  });
+
+};
+
+submitBtn.addEventListener('click', () => {
+  addBookToLibrary(inputTitle.value, inputAuthor.value, inputPages.value, inputRead, inputColor);
+  closeModal();
+});
+
+function addBookToLibrary(inputTitle, inputAuthor, inputPages) {
+  const userBook = new Book(inputTitle, inputAuthor, inputPages, "");
   myLibrary.push(userBook);
   displayBooks();
 };
 
-function Book(title, author, pages, read) {
+function Book(title, author, pages, read, color) {
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.read = read;
-  this.color = "";
+  this.color = color;
   this.info = function() {
     return this.author;
   };
@@ -81,12 +130,14 @@ function displayBooks(){
           icon.className = 'grid-item-icon';
           icon.id = 'grid-item-icon' + i;
           icon.src = 'photos/book.svg';
+          icon.style.backgroundColor = myLibrary[i].color;
           cell.style.opacity = '100';
           cell.textContent = String(myLibrary[i].title).substring(0, 10);
           cell.appendChild(icon);
           cell.addEventListener("click", () => {
             openModal(myLibrary[i].title, myLibrary[i].author, myLibrary[i].pages, myLibrary[i].read, i);
         });
+        console.log(myLibrary);
       };
     };
   };
