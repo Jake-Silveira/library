@@ -19,9 +19,9 @@ const addBtn = document.getElementById('newBtn');
 const content = document.querySelector('.contentGrid');
 
 const userForm = document.querySelector('.userForm');
-const userTitle = document.getElementById('userTitle').value;
-const userAuthor = document.getElementById('userAuthor').value;
-const userPages = document.getElementById('userPages').value;
+const userTitle = document.getElementById('userTitle');
+const userAuthor = document.getElementById('userAuthor');
+const userPages = document.getElementById('userPages');
 const userColor = document.getElementById('userColor').value;
 const userRead = document.getElementById('userRead');
 const userUnread = document.getElementById('userUnread');
@@ -72,29 +72,30 @@ const openUserForm = function(){
   userRead.addEventListener("click", function(){
     userUnread.checked = false;
     userInProgress.checked = false;
-    let inputRead = "read";
+    inputRead = 'read';
   });
 
   userUnread.addEventListener("click", () => {
     userRead.checked = false;
     userInProgress.checked = false;
-    let inputRead = "unread";
+    inputRead = 'unread';
   });
 
   userInProgress.addEventListener("click", () =>{
     userRead.checked = false;
     userUnread.checked = false;
-    let inputRead = "in-progress";
+    inputRead = 'in-progress';
   });
 
 };
 
 submitBtn.addEventListener('click', () => {
-  if(userTitle !== "" && userAuthor !== "" && userPages !== ""){
-    addBookToLibrary(userTitle, userAuthor, userPages, 'read', userColor);
+
+  if(userTitle.value !== "" && userAuthor.value !== "" && userPages.value !== ""){
+    addBookToLibrary(userTitle.value, userAuthor.value, userPages.value, inputRead, userColor);
   closeModal();
-  } else{
-    alert('Please fill in all fields.');
+  } else {
+    return alert('Please fill in all fields.');
   };
   
 });
@@ -133,7 +134,6 @@ function displayBooks(){
           cell.addEventListener("click", () => {
             openModal(myLibrary[i].title, myLibrary[i].author, myLibrary[i].pages, myLibrary[i].read, i);
         });
-        console.log(myLibrary);
       };
     };
   };
