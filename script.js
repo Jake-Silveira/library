@@ -22,7 +22,7 @@ const userForm = document.querySelector('.userForm');
 const userTitle = document.getElementById('userTitle');
 const userAuthor = document.getElementById('userAuthor');
 const userPages = document.getElementById('userPages');
-const userColor = document.getElementById('userColor');
+const userColor = document.getElementById('userColor').value;
 const userRead = document.getElementById('userRead');
 const userUnread = document.getElementById('userUnread');
 const userInProgress = document.getElementById('userIn-progress');
@@ -63,7 +63,6 @@ let inputTitle = userTitle;
 let inputAuthor = userAuthor;
 let inputPages = userPages;
 var inputRead;
-let inputColor = toString(userColor.value);
 
 
 addBtn.addEventListener('click', () =>  {
@@ -76,7 +75,6 @@ const openUserForm = function(){
   inputPages.value = "";
   userForm.classList.remove("hidden");
   overlay.classList.remove("hidden");
-
 
   userRead.addEventListener("click", function(){
     userUnread.checked = false;
@@ -99,12 +97,13 @@ const openUserForm = function(){
 };
 
 submitBtn.addEventListener('click', () => {
-  addBookToLibrary(inputTitle.value, inputAuthor.value, inputPages.value, inputRead, inputColor);
+  if(userTitle)
+  addBookToLibrary(inputTitle.value, inputAuthor.value, inputPages.value, inputRead, userColor);
   closeModal();
 });
 
-function addBookToLibrary(inputTitle, inputAuthor, inputPages) {
-  const userBook = new Book(inputTitle, inputAuthor, inputPages, "");
+function addBookToLibrary(inputTitle, inputAuthor, inputPages, inputRead, userColor) {
+  const userBook = new Book(inputTitle, inputAuthor, inputPages, inputRead, userColor);
   myLibrary.push(userBook);
   displayBooks();
 };
