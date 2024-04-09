@@ -331,7 +331,7 @@ ul{
     font-size: 1vw;
 }
 
-.modal{
+.modal, .userForm{
     display: flex;
     flex-direction: column;
     gap: 1vw;
@@ -345,23 +345,24 @@ ul{
     z-index: 2;
   }
 
-  .modal img{
+  .modal img, .userForm img{
     width: 4vw;
     height: auto;
   }
 
-  .modal h3{
+  .modal h3, .userForm h3{
     font-size: 3vw;
   }
   
-  .modal .flex {
+  .modal .flex, .userForm .flex{
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
-  .btn-close {
+  .btn-close, .userFormBtn-close{
     padding: .3vw .3vw;
+    font-size: 1.6vw;
     background: #eee;
     border-radius: 50%;
   }
@@ -372,19 +373,26 @@ ul{
     margin: .4vw 0 .2vw;
   }
 
-  .modal .inputColor{
-    width: 6vw;
-    height: 8vh;
+  .bookInfo{
+    align-self: center;
+  }
+
+  .modal .inputColor, .userForm .inputColor{
+    width: 3vw;
+    height: 3vw;
     padding: 0%;
     border: 0%;
   }
 
-  .modal .inputRadio{
+  .modal .inputRadio, .userForm .inputRadio{
     width: 2vw;
     height: auto;
   }
 
-  .modal fieldset{
+  .modal fieldset, .userForm fieldset{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     border-style: none;
     font-size: 1.6vw;
   }
@@ -404,4 +412,41 @@ ul{
 
   .hidden {
     display: none;
+  }
+
+  .userForm .bookInfo, .userEntries{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+
+ .userEntries input{
+    font-size: 1.6vw;
+    width: 30vw;
+    background-color: rgba(251, 224, 195, 0.60);
+    border-radius: 2vw;
+    border-style: none;
+    color: #202020;
+    height: 2vw;
+  }
+  .userEntries label{
+    align-self: flex-start;
+  }
+
+  .bookInfo label{
+    font-size: 1.6vw;
+  }
+
+  .btn-add{
+    border-radius: 2vw;
+    width: 50%;
+    align-self: center;
+    border-style: none;
+    color: #202020;
+    height: 2vw;
+    background-color: rgba(251, 224, 195, 0.60);
+    font-size: 1.5vw;
+    font-weight: 700;
   }

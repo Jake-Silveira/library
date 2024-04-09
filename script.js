@@ -15,12 +15,14 @@ const book14 = new Book('Alegiant', 'Veronica Roth', 526, 'unread');
 
 const myLibrary = [book1, book2, book3, book4, book5, book6, book7, book8, book9, book10, book11, book12, book13, book14];
 
-const userForm = document.getElementById('newBtn');
+const addBtn = document.getElementById('newBtn');
 const content = document.querySelector('.contentGrid');
 
+const userForm = document.querySelector('.userForm')
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 const closeModalBtn = document.querySelector(".btn-close");
+const closeUserFormBtn = document.querySelector(".userFormBtn-close");
 const bookTitle = document.querySelector(".bookTitle");
 const bookAuthor = document.querySelector(".bookAuthor");
 const bookPages = document.querySelector(".bookPages");
@@ -46,10 +48,10 @@ function makeRows(rows, cols){
 
 makeRows(6,6);
 
-userForm.addEventListener('click', () =>  {
-  let inputTitle = prompt('Enter a title');
-  let inputAuthor = prompt('Enter an Author');
-  addBookToLibrary(inputTitle, inputAuthor);
+addBtn.addEventListener('click', () =>  {
+  userForm.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+  /*addBookToLibrary(inputTitle, inputAuthor);*/
 });
 
 function addBookToLibrary(inputTitle, inputAuthor) {
@@ -140,11 +142,13 @@ const changeColor = function(event){
 
 const closeModal = function () {
   modal.classList.add("hidden");
+  userForm.classList.add("hidden");
   overlay.classList.add("hidden");
 };
 
 closeModalBtn.addEventListener("click", closeModal);
 overlay.addEventListener("click", closeModal);
+closeUserFormBtn.addEventListener("click", closeModal);
 
 
 

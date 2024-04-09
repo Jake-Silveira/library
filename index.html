@@ -104,6 +104,36 @@
             </fieldset>
         </div>
       </section>
+
+      <section class="userForm hidden">
+        <div class="flex">
+          <img src="photos/book.svg" width="50px" height="50px" alt="booklogo" />
+          <h3 class="formTitle">Add a Book</h3>
+          <button class="userFormBtn-close">⨉</button>
+        </div>
+        
+        <div class="bookInfo">
+            <div class="userEntries">
+                <label for="userTitle">Title:</label>
+                <input class="userInput" type="text" id="userTitle" name="userTitle" required>
+                <label for="userAuthor">Author:</label>    
+                <input class="userInput" type="text" id="userAuthor" name="userAuthor" required>
+                <label for="userPages">Pages:</label>
+                <input class="userInput" type="text" id="userPages" name="userPages" required>
+            </div>
+            <label for="bookColor">Color:</label>
+            <input class="inputColor" type="color" id="bookColor" name="color" value="#05EEFF">
+            <fieldset>
+                <input class="inputRadio" type="radio" id="userRead" name="opt1" value="read">
+                <label for="userRead">Read</label>
+                <input class="inputRadio" type="radio" id="userUnread" name="opt2" value="unread">
+                <label for="userUnread">Unread</label>
+                <input class="inputRadio" type="radio" id="userIn-progress" name="opt3" value="in-progress">
+                <label for="userIn-progress">In-Progress</label>
+            </fieldset>
+        </div>
+            <button class="btn-add">Add</button>
+      </section>
       
       <div class="overlay hidden"></div>
     
