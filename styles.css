@@ -228,6 +228,8 @@ ul{
     grid-row: 2 / 4;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    height: 100%;
 }
 
 .background1{
@@ -240,7 +242,7 @@ ul{
     position: relative;
     grid-column: 2 / 3;
     grid-row: 4 / 6;
-    bottom: 5vh;
+    bottom: 5vw;
 }
 
 .contentGrid{
