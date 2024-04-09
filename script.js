@@ -19,9 +19,9 @@ const addBtn = document.getElementById('newBtn');
 const content = document.querySelector('.contentGrid');
 
 const userForm = document.querySelector('.userForm');
-const userTitle = document.getElementById('userTitle');
-const userAuthor = document.getElementById('userAuthor');
-const userPages = document.getElementById('userPages');
+const userTitle = document.getElementById('userTitle').value;
+const userAuthor = document.getElementById('userAuthor').value;
+const userPages = document.getElementById('userPages').value;
 const userColor = document.getElementById('userColor').value;
 const userRead = document.getElementById('userRead');
 const userUnread = document.getElementById('userUnread');
@@ -58,21 +58,14 @@ function makeRows(rows, cols){
 
 makeRows(6,6);
 
-
-let inputTitle = userTitle;
-let inputAuthor = userAuthor;
-let inputPages = userPages;
-var inputRead;
-
-
 addBtn.addEventListener('click', () =>  {
   openUserForm();
 });
 
 const openUserForm = function(){
-  inputTitle.value = "";
-  inputAuthor.value = "";
-  inputPages.value = "";
+  userTitle.value = "";
+  userAuthor.value = "";
+  userPages.value = "";
   userForm.classList.remove("hidden");
   overlay.classList.remove("hidden");
 
@@ -97,9 +90,13 @@ const openUserForm = function(){
 };
 
 submitBtn.addEventListener('click', () => {
-  if(userTitle)
-  addBookToLibrary(inputTitle.value, inputAuthor.value, inputPages.value, inputRead, userColor);
+  if(userTitle !== "" && userAuthor !== "" && userPages !== ""){
+    addBookToLibrary(userTitle, userAuthor, userPages, 'read', userColor);
   closeModal();
+  } else{
+    alert('Please fill in all fields.');
+  };
+  
 });
 
 function addBookToLibrary(inputTitle, inputAuthor, inputPages, inputRead, userColor) {
