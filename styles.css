@@ -253,7 +253,7 @@ ul{
     --grid-rows: 1;
     grid-template-rows: repeat(var(--grid-rows), 1fr);
     grid-template-columns: repeat(var(--grid-cols), 1fr);
-    gap: 2.3vw;
+    gap: 2vw;
     overflow: auto;
     box-sizing: border-box;
     padding-left: 3vw;
@@ -268,7 +268,7 @@ ul{
     font-size: 1vw;
 }
 
-.grid-item:hover{
+.grid-item-icon:hover{
     cursor: pointer;
 }
 
@@ -276,6 +276,11 @@ ul{
     width: 4vw;
     height: auto;
     border-radius: .8vw;
+}
+
+.grid-item-check{
+  width: .6vw;
+  height: .6vw;
 }
 
 .ad{
@@ -338,11 +343,18 @@ ul{
     padding: 1vw;
     width: 50%;
     position: absolute;
-    top: 20%;
     background-color: rgba(125, 142, 149, 1);
     border: 1px solid #ddd;
     border-radius: 2vw;
     z-index: 2;
+  }
+
+  .modal{
+  top: 20%;
+  }
+
+  .userForm{
+    top: 5%;
   }
 
   .modal img, .userForm img{

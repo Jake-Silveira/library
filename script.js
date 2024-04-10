@@ -16,6 +16,7 @@ const book14 = new Book('Alegiant', 'Veronica Roth', 526, 'unread');
 const myLibrary = [book1, book2, book3, book4, book5, book6, book7, book8, book9, book10, book11, book12, book13, book14];
 
 const addBtn = document.getElementById('newBtn');
+const selectBtn = document.getElementById('selectBtn');
 const content = document.querySelector('.contentGrid');
 
 const userForm = document.querySelector('.userForm');
@@ -124,18 +125,39 @@ function displayBooks(){
       let cell = document.getElementById('grid-item' + i);
         if(cell.style.opacity < 100){
           let icon = document.createElement('img');
+          let check = document.createElement('input');
           icon.className = 'grid-item-icon';
           icon.id = 'grid-item-icon' + i;
           icon.src = 'photos/book.svg';
           icon.style.backgroundColor = myLibrary[i].color;
+          check.type = 'checkbox';
+          check.className = 'grid-item-check';
+          check.id = 'grid-item-check' + i;
+          check.classList.add('hidden');
           cell.style.opacity = '100';
           cell.textContent = String(myLibrary[i].title).substring(0, 10);
           cell.appendChild(icon);
-          cell.addEventListener("click", () => {
+          cell.appendChild(check);
+          icon.addEventListener("click", () => {
             openModal(myLibrary[i].title, myLibrary[i].author, myLibrary[i].pages, myLibrary[i].read, i);
         });
       };
     };
+  };
+};
+
+selectBtn.addEventListener('click', () =>{
+  insertOrRemoveChecks();
+});
+
+const insertOrRemoveChecks = function (){
+  for(let i =0; i < 36; i++) {
+    let cell = document.getElementById('grid-item' + i);
+    if(cell.style.opacity !== '0'){
+      let check = document.getElementById('grid-item-check' + i);
+      check.classList.toggle('hidden');
+    };
+    
   };
 };
 
