@@ -169,6 +169,10 @@ ul{
     font-weight: 700;
 }
 
+.navButtons button:hover{
+  cursor: pointer;
+}
+
 .iconWelcomeContainer{
     display: flex;
     flex-direction: row;

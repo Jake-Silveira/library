@@ -17,6 +17,7 @@ const myLibrary = [book1, book2, book3, book4, book5, book6, book7, book8, book9
 
 const addBtn = document.getElementById('newBtn');
 const selectBtn = document.getElementById('selectBtn');
+const removeBtn = document.getElementById('removeBtn');
 const content = document.querySelector('.contentGrid');
 
 const userForm = document.querySelector('.userForm');
@@ -160,6 +161,21 @@ const insertOrRemoveChecks = function (){
     
   };
 };
+
+removeBtn.addEventListener('click', () =>{
+  for(let i = 0; i < 36; i++) {
+    let cell = document.getElementById('grid-item' + i);
+    if(cell.style.opacity !== '0'){
+      let check = document.getElementById('grid-item-check' + i);
+        if(check.checked == true){
+          myLibrary.splice(i , 1);
+          console.log(myLibrary[i]);
+          cell.remove();
+        };
+    };
+  };  
+  displayBooks();
+});
 
 const openModal = function (title, author, pages, read, arrayIndex) {
   cellIndex.textContent = arrayIndex;
