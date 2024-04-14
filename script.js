@@ -1,17 +1,17 @@
-const book1 = new Book('Divergent', 'Veronica Roth', 487, 'read');
-const book2 = new Book('Insurgent', 'Veronica Roth', 568, 'unread');
-const book3 = new Book('Alegiant', 'Veronica Roth', 526, 'in-progress');
-const book4 = new Book('Alegiant', 'Veronica Roth', 526, 'unread');
-const book5 = new Book('Alegiant', 'Veronica Roth', 526, 'unread');
-const book6 = new Book('Alegiant', 'Veronica Roth', 526, 'unread');
-const book7 = new Book('Alegiant', 'Veronica Roth', 526, 'unread');
-const book8 = new Book('Alegiant', 'Veronica Roth', 526, 'unread');
-const book9 = new Book('Alegiant', 'Veronica Roth', 526, 'unread');
-const book10 = new Book('Alegiant', 'Veronica Roth', 526, 'unread');
-const book11 = new Book('Alegiant', 'Veronica Roth', 526, 'unread');
-const book12 = new Book('Alegiant', 'Veronica Roth', 526, 'unread');
-const book13 = new Book('Alegiant', 'Veronica Roth', 526, 'unread');
-const book14 = new Book('Alegiant', 'Veronica Roth', 526, 'unread');
+const book1 = new Book('Divergent', 'Veronica Roth', 487, 'read', 'grey', false);
+const book2 = new Book('Insurgent', 'Veronica Roth', 568, 'unread', 'grey', false);
+const book3 = new Book('Alegiant', 'Veronica Roth', 526, 'in-progress', 'grey', false);
+const book4 = new Book('Divergent', 'Veronica Roth', 487, 'read', 'grey', false);
+const book5 = new Book('Divergent', 'Veronica Roth', 487, 'read', 'grey', false);
+const book6 = new Book('Divergent', 'Veronica Roth', 487, 'read', 'grey', false);
+const book7 = new Book('Divergent', 'Veronica Roth', 487, 'read', 'grey', false);
+const book8 = new Book('Divergent', 'Veronica Roth', 487, 'read', 'grey', false);
+const book9 = new Book('Divergent', 'Veronica Roth', 487, 'read', 'grey', false);
+const book10 = new Book('Divergent', 'Veronica Roth', 487, 'read', 'grey', false);
+const book11 = new Book('Divergent', 'Veronica Roth', 487, 'read', 'grey', false);
+const book12 = new Book('Divergent', 'Veronica Roth', 487, 'read', 'grey', false);
+const book13 = new Book('Divergent', 'Veronica Roth', 487, 'read', 'grey', false);
+const book14 = new Book('Divergent', 'Veronica Roth', 487, 'read', 'grey', false);
 
 const myLibrary = [book1, book2, book3, book4, book5, book6, book7, book8, book9, book10, book11, book12, book13, book14];
 
@@ -44,21 +44,7 @@ const bookInProgress =document.getElementById('in-progress');
 const bookColor = document.getElementById('bookColor');
 const cellIndex = document.querySelector('.index');
 
-function makeRows(rows, cols){
-  content.style.setProperty('--grid-rows', rows);
-  content.style.setProperty('--grid-cols', cols);
-
-  for(c = 0; c < (rows * cols); c++){
-    let cell = document.createElement('div');
-    content.appendChild(cell).className = "grid-item";
-    cell.id = "grid-item" + c;
-    cell.style.padding = '1vw';
-    cell.style.opacity = '0';
-  };
-  displayBooks();
-};
-
-makeRows(6,6);
+displayBooks();
 
 addBtn.addEventListener('click', () =>  {
   openUserForm();
@@ -103,17 +89,18 @@ submitBtn.addEventListener('click', () => {
 });
 
 function addBookToLibrary(inputTitle, inputAuthor, inputPages, inputRead, userColor) {
-  const userBook = new Book(inputTitle, inputAuthor, inputPages, inputRead, userColor);
+  const userBook = new Book(inputTitle, inputAuthor, inputPages, inputRead, userColor, false);
   myLibrary.push(userBook);
   displayBooks();
 };
 
-function Book(title, author, pages, read, color) {
+function Book(title, author, pages, read, color, displayed) {
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.read = read;
   this.color = color;
+  this.displayed = displayed;
   this.info = function() {
     return this.author;
   };
@@ -121,28 +108,31 @@ function Book(title, author, pages, read, color) {
 
 
 function displayBooks(){
-  for (let i = 0; i < 36; i++) {
-    if(typeof myLibrary[i] !== 'undefined'){
-      let cell = document.getElementById('grid-item' + i);
-        if(cell.style.opacity < 100){
-          let icon = document.createElement('img');
-          let check = document.createElement('input');
-          icon.className = 'grid-item-icon';
-          icon.id = 'grid-item-icon' + i;
-          icon.src = 'photos/book.svg';
-          icon.style.backgroundColor = myLibrary[i].color;
-          check.type = 'checkbox';
-          check.className = 'grid-item-check';
-          check.id = 'grid-item-check' + i;
-          check.classList.add('hidden');
-          cell.style.opacity = '100';
-          cell.textContent = String(myLibrary[i].title).substring(0, 10);
-          cell.appendChild(icon);
-          cell.appendChild(check);
-          icon.addEventListener("click", () => {
-            openModal(myLibrary[i].title, myLibrary[i].author, myLibrary[i].pages, myLibrary[i].read, i);
-        });
-      };
+  for (let i = 0; i < myLibrary.length; i++) {
+    console.log(i);
+    if(myLibrary[i].displayed == false){
+      myLibrary[i].displayed = true;
+      let cell = document.createElement('div');
+      content.appendChild(cell).className = "grid-item";
+      cell.id = "grid-item" + i;
+      cell.style.padding = '1vw';
+      let icon = document.createElement('img');
+      let check = document.createElement('input');
+      icon.className = 'grid-item-icon';
+      icon.id = 'grid-item-icon' + i;
+      icon.src = 'photos/book.svg';
+      icon.style.backgroundColor = myLibrary[i].color;
+      check.type = 'checkbox';
+      check.className = 'grid-item-check';
+      check.id = 'grid-item-check' + i;
+      check.classList.add('hidden');
+      cell.style.opacity = '100';
+      cell.textContent = String(myLibrary[i].title).substring(0, 10);
+      cell.appendChild(icon);
+      cell.appendChild(check);
+      icon.addEventListener("click", () => {
+        openModal(myLibrary[i].title, myLibrary[i].author, myLibrary[i].pages, myLibrary[i].read, i);
+      });
     };
   };
 };
@@ -152,26 +142,19 @@ selectBtn.addEventListener('click', () =>{
 });
 
 const insertOrRemoveChecks = function (){
-  for(let i =0; i < 36; i++) {
-    let cell = document.getElementById('grid-item' + i);
-    if(cell.style.opacity !== '0'){
-      let check = document.getElementById('grid-item-check' + i);
-      check.classList.toggle('hidden');
-    };
-    
+  for(let i =0; i < myLibrary.length; i++) {
+    let check = document.getElementById('grid-item-check' + i);
+    check.classList.toggle('hidden');
   };
 };
 
 removeBtn.addEventListener('click', () =>{
-  for(let i = 0; i < 36; i++) {
-    let cell = document.getElementById('grid-item' + i);
-    if(cell.style.opacity !== '0'){
-      let check = document.getElementById('grid-item-check' + i);
-        if(check.checked == true){
-          myLibrary.splice(i , 1);
-          console.log(myLibrary[i]);
-          cell.remove();
-        };
+  for(let i = 0; i < myLibrary.length; i++) {
+    let check = document.getElementById('grid-item-check' + i);
+    if(check.checked == true){
+      myLibrary.splice(i , 1);
+      let cell = document.getElementById('grid-item' + i);
+      cell.remove();
     };
   };  
   displayBooks();
