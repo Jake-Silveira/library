@@ -1,17 +1,17 @@
-const book1 = new Book('Divergent', 'Veronica Roth', 487, 'read', 'grey', false);
-const book2 = new Book('Insurgent', 'Veronica Roth', 568, 'unread', 'grey', false);
-const book3 = new Book('Alegiant', 'Veronica Roth', 526, 'in-progress', 'grey', false);
-const book4 = new Book('Divergent', 'Veronica Roth', 487, 'read', 'grey', false);
-const book5 = new Book('Divergent', 'Veronica Roth', 487, 'read', 'grey', false);
-const book6 = new Book('Divergent', 'Veronica Roth', 487, 'read', 'grey', false);
-const book7 = new Book('Divergent', 'Veronica Roth', 487, 'read', 'grey', false);
-const book8 = new Book('Divergent', 'Veronica Roth', 487, 'read', 'grey', false);
-const book9 = new Book('Divergent', 'Veronica Roth', 487, 'read', 'grey', false);
-const book10 = new Book('Divergent', 'Veronica Roth', 487, 'read', 'grey', false);
-const book11 = new Book('Divergent', 'Veronica Roth', 487, 'read', 'grey', false);
-const book12 = new Book('Divergent', 'Veronica Roth', 487, 'read', 'grey', false);
-const book13 = new Book('Divergent', 'Veronica Roth', 487, 'read', 'grey', false);
-const book14 = new Book('Divergent', 'Veronica Roth', 487, 'read', 'grey', false);
+const book1 = new Book('book1', 'Veronica Roth', 487, 'read', 'grey', false);
+const book2 = new Book('book2', 'Veronica Roth', 568, 'unread', 'grey', false);
+const book3 = new Book('book3', 'Veronica Roth', 526, 'in-progress', 'grey', false);
+const book4 = new Book('book4', 'Veronica Roth', 487, 'read', 'grey', false);
+const book5 = new Book('book5', 'Veronica Roth', 487, 'read', 'grey', false);
+const book6 = new Book('book6', 'Veronica Roth', 487, 'read', 'grey', false);
+const book7 = new Book('book7', 'Veronica Roth', 487, 'read', 'grey', false);
+const book8 = new Book('book8', 'Veronica Roth', 487, 'read', 'grey', false);
+const book9 = new Book('book9', 'Veronica Roth', 487, 'read', 'grey', false);
+const book10 = new Book('book10', 'Veronica Roth', 487, 'read', 'grey', false);
+const book11 = new Book('book11', 'Veronica Roth', 487, 'read', 'grey', false);
+const book12 = new Book('book12', 'Veronica Roth', 487, 'read', 'grey', false);
+const book13 = new Book('book13', 'Veronica Roth', 487, 'read', 'grey', false);
+const book14 = new Book('book14', 'Veronica Roth', 487, 'read', 'grey', false);
 
 const myLibrary = [book1, book2, book3, book4, book5, book6, book7, book8, book9, book10, book11, book12, book13, book14];
 
@@ -131,7 +131,7 @@ function displayBooks(){
       cell.appendChild(icon);
       cell.appendChild(check);
       icon.addEventListener("click", () => {
-        openModal(myLibrary[i].title, myLibrary[i].author, myLibrary[i].pages, myLibrary[i].read, i);
+        openModal(myLibrary[i].title, myLibrary[i].author, myLibrary[i].pages, i);
       });
     };
   };
@@ -144,61 +144,90 @@ selectBtn.addEventListener('click', () =>{
 const insertOrRemoveChecks = function (){
   for(let i =0; i < myLibrary.length; i++) {
     let check = document.getElementById('grid-item-check' + i);
-    check.classList.toggle('hidden');
+    if(document.body.contains(check)){
+      check.classList.toggle('hidden');
+    };
   };
 };
 
 removeBtn.addEventListener('click', () =>{
-  for(let i = 0; i < myLibrary.length; i++) {
-    let check = document.getElementById('grid-item-check' + i);
-    if(check.checked == true){
-      myLibrary.splice(i , 1);
-      let cell = document.getElementById('grid-item' + i);
-      cell.remove();
+  let arrayLength = myLibrary.length;
+  for(let i = 0; i < arrayLength; i++) {
+    let cell = document.getElementById('grid-item' + i);
+    if(document.body.contains(cell)){
+      let check = document.getElementById('grid-item-check' + i);
+      if(check.checked == true){
+
+        myLibrary.splice(i , 1);
+        
+        let icon = document.getElementById('grid-item-icon' + i);
+        icon.remove();
+        check.remove();
+        cell.remove();
+      };
     };
-  };  
+  };
+  removeAllBooks(arrayLength);
   displayBooks();
 });
 
-const openModal = function (title, author, pages, read, arrayIndex) {
+
+const removeAllBooks = function(arrayLength){
+  for(let i =0; i < arrayLength; i++){
+    if(typeof myLibrary[i] !=='undefined'){
+      myLibrary[i].displayed = false
+    };
+
+      let cell = document.getElementById('grid-item' + i);
+      if(document.body.contains(cell)){
+          let icon = document.getElementById('grid-item-icon' + i);
+          let check = document.getElementById('grid-item-check' + i);
+          icon.remove();
+          check.remove();
+          cell.remove();
+      };
+  };
+};
+
+const openModal = function (title, author, pages, arrayIndex) {
   cellIndex.textContent = arrayIndex;
   cellIndex.style.visibility = "hidden";
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
   bookTitle.textContent = title;
   bookAuthor.textContent = "Author: " + author;
   bookPages.textContent = pages + " Pages";
   bookColor.addEventListener("input", changeColor, false);
-  if(read == 'read'){
+  if(myLibrary[cellIndex.textContent].read == 'read'){
     bookRead.checked = true;
     bookUnread.checked = false;
     bookInProgress.checked = false;
-  } else if(read == 'unread'){
+  } else if(myLibrary[cellIndex.textContent].read == 'unread'){
     bookRead.checked = false;
     bookUnread.checked = true;
     bookInProgress.checked = false;
-  } else if(read == 'in-progress'){
+  } else if(myLibrary[cellIndex.textContent].read == 'in-progress'){
     bookRead.checked = false;
     bookUnread.checked = false;
     bookInProgress.checked =true;
   }
-  modal.classList.remove("hidden");
-  overlay.classList.remove("hidden");
 
   bookRead.addEventListener("click", function(){
     bookUnread.checked = false;
     bookInProgress.checked = false;
-    myLibrary[arrayIndex].read = "read";
+    myLibrary[cellIndex.textContent].read = "read";
   });
 
   bookUnread.addEventListener("click", () => {
     bookRead.checked = false;
     bookInProgress.checked = false;
-    myLibrary[arrayIndex].read = "unread";
+    myLibrary[cellIndex.textContent].read = "unread";
   });
 
   bookInProgress.addEventListener("click", () =>{
     bookRead.checked = false;
     bookUnread.checked = false;
-    myLibrary[arrayIndex].read = "in-progress";
+    myLibrary[cellIndex.textContent].read = "in-progress";
   });
 };
 
@@ -209,6 +238,8 @@ const changeColor = function(event){
 };
 
 const closeModal = function () {
+  removeAllBooks(myLibrary.length);
+  displayBooks();
   modal.classList.add("hidden");
   userForm.classList.add("hidden");
   overlay.classList.add("hidden");

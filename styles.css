@@ -396,10 +396,23 @@ ul{
   }
 
   .modal .inputColor, .userForm .inputColor{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
     width: 3vw;
     height: 3vw;
-    padding: 0;
-    border-style: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .modal .inputColor::-webkit-color-swatch, .userForm .inputColor::-webkit-color-swatch {
+    border-radius: 50%;
+    border: 7px solid #000000;
+  }
+  .modal .inputColor::-moz-color-swatch, .userForm .inputColor::-moz-color-swatch {
+    border-radius: 50%;
+    border: 7px solid #000000;
   }
 
  .inputRadio{
