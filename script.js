@@ -152,7 +152,7 @@ const insertOrRemoveChecks = function (){
 
 removeBtn.addEventListener('click', () =>{
   let arrayLength = myLibrary.length;
-  for(let i = 0; i < arrayLength; i++) {
+  for(let i = arrayLength -1; i >= 0; i--) {
     let cell = document.getElementById('grid-item' + i);
     if(document.body.contains(cell)){
       let check = document.getElementById('grid-item-check' + i);
