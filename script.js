@@ -19,6 +19,8 @@ const addBtn = document.getElementById('newBtn');
 const selectBtn = document.getElementById('selectBtn');
 const removeBtn = document.getElementById('removeBtn');
 const content = document.querySelector('.contentGrid');
+const adSection = document.querySelector('.ad');
+const container = document.querySelector('.container');
 
 const userForm = document.querySelector('.userForm');
 const userTitle = document.getElementById('userTitle');
@@ -248,7 +250,23 @@ closeModalBtn.addEventListener("click", closeModal);
 overlay.addEventListener("click", closeModal);
 closeUserFormBtn.addEventListener("click", closeModal);
 
+function hideElements(x){
+  if(x.matches) {
+    adSection.classList.add('hidden');
+    container.style.gridTemplateColumns = "minmax(13vw, 20vw) minmax(40vw, 81vw)";
+  } else {
+    adSection.classList.remove('hidden');
+    container.style.gridTemplateColumns = "minmax(13vw, 20vw) minmax(40vw, 81vw) minmax(10vw, 30vw)"
+  };
+};
 
+var x = window.matchMedia("(max-width: 700px");
+
+hideElements(x);
+
+x.addEventListener("change", () =>{
+  hideElements(x);
+});
 
 /*Book.prototype.sayHello = function() {
   console.log("Hello, I'm a player!");
