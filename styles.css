@@ -250,18 +250,16 @@ ul{
 }
 
 .contentGrid{
-    grid-column: 3 / 4;
-    display: grid;
-    position: absolute;
-    grid-template-columns: repeat(6, 1fr);
-    grid-auto-rows: minmax(1vw, 3vw);
-    gap: 2.3vw;
-    row-gap: 6vw;
-    overflow: auto;
-    box-sizing: border-box;
-    padding-left: 3vw;
-    padding-top: 3vw;
-    height: 100vh;
+  display: grid;
+  position: absolute;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: minmax(1vw, 8vw);
+  gap: 2.3vw;
+  row-gap: 1vw;
+  overflow: auto;
+  box-sizing: border-box;
+  padding-left: 3vw;
+  height: 100vh;
 }
 
 .grid-item{
@@ -283,9 +281,20 @@ ul{
     border-radius: .8vw;
 }
 
+.grid-item-check:hover{
+  cursor: crosshair;
+}
+
+.grid-item-check:checked{
+  background-color: #202020;
+}
+
 .grid-item-check{
-  width: .6vw;
-  height: .6vw;
+  appearance: none;
+   width: 1vw;
+   height: 1vw;
+   background-color:#f1f1f1;
+   border: 3px solid lightgray;
 }
 
 .ad{
@@ -396,8 +405,6 @@ ul{
   }
 
   .modal .inputColor, .userForm .inputColor{
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
     background-color: transparent;
     width: 3vw;

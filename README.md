@@ -1,5 +1,5 @@
 # library
 # to do:
-# Delete function
-# Grid Auto-fit rather than opacity
+# Delete function - working
+# Grid Auto-fit rather than opacity - working
 # filtering & searching

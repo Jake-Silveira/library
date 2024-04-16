@@ -109,7 +109,6 @@ function Book(title, author, pages, read, color, displayed) {
 
 function displayBooks(){
   for (let i = 0; i < myLibrary.length; i++) {
-    console.log(i);
     if(myLibrary[i].displayed == false){
       myLibrary[i].displayed = true;
       let cell = document.createElement('div');
