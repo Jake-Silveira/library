@@ -280,19 +280,12 @@ ul{
 }
 
 .grid-item-check:hover{
-  cursor: crosshair;
-}
-
-.grid-item-check:checked{
-  background-color: #202020;
+  cursor: pointer;
 }
 
 .grid-item-check{
-  appearance: none;
-   width: 1vw;
-   height: 1vw;
-   background-color:#f1f1f1;
-   border: 1vw solid lightgray;
+   width: 3vw;
+   height: 3vw;
 }
 
 .ad{
