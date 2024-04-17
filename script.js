@@ -1,4 +1,4 @@
-const book1 = new Book('book1', 'Veronica Roth', 487, 'read', 'grey', false);
+/*const book1 = new Book('book1', 'Veronica Roth', 487, 'read', 'grey', false);
 const book2 = new Book('book2', 'Veronica Roth', 568, 'unread', 'grey', false);
 const book3 = new Book('book3', 'Veronica Roth', 526, 'in-progress', 'grey', false);
 const book4 = new Book('book4', 'Veronica Roth', 487, 'read', 'grey', false);
@@ -11,9 +11,9 @@ const book10 = new Book('book10', 'Veronica Roth', 487, 'read', 'grey', false);
 const book11 = new Book('book11', 'Veronica Roth', 487, 'read', 'grey', false);
 const book12 = new Book('book12', 'Veronica Roth', 487, 'read', 'grey', false);
 const book13 = new Book('book13', 'Veronica Roth', 487, 'read', 'grey', false);
-const book14 = new Book('book14', 'Veronica Roth', 487, 'read', 'grey', false);
+const book14 = new Book('book14', 'Veronica Roth', 487, 'read', 'grey', false);*/
 
-const myLibrary = [book1, book2, book3, book4, book5, book6, book7, book8, book9, book10, book11, book12, book13, book14];
+const myLibrary = [/*book1, book2, book3, book4, book5, book6, book7, book8, book9, book10, book11, book12, book13, book14*/];
 
 const addBtn = document.getElementById('newBtn');
 const selectBtn = document.getElementById('selectBtn');
