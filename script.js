@@ -21,6 +21,9 @@ const removeBtn = document.getElementById('removeBtn');
 const content = document.querySelector('.contentGrid');
 const adSection = document.querySelector('.ad');
 const container = document.querySelector('.container');
+const header = document.querySelector('.header');
+const background1 = document.querySelector('.background1');
+const background2 = document.querySelector('.background2');
 
 const userForm = document.querySelector('.userForm');
 const userTitle = document.getElementById('userTitle');
@@ -253,10 +256,33 @@ closeUserFormBtn.addEventListener("click", closeModal);
 function hideElements(x){
   if(x.matches) {
     adSection.classList.add('hidden');
+    background1.classList.add('hidden');
+    background2.classList.add('hidden');
     container.style.gridTemplateColumns = "minmax(13vw, 20vw) minmax(40vw, 81vw)";
+    header.style.gridColumnEnd = '3';
+    content.style.rowGap = '8vw';
+    for(i = 0; i < myLibrary.length; i++){
+      let gridItem = document.getElementById('grid-item' + i);
+      let gridItemIcon = document.getElementById('grid-item-icon' + i);
+      gridItem.style.fontSize = '2vw';
+      gridItemIcon.style.width = '7vw';
+    };
+      
   } else {
     adSection.classList.remove('hidden');
+    background1.classList.remove('hidden');
+    background2.classList.remove('hidden');
     container.style.gridTemplateColumns = "minmax(13vw, 20vw) minmax(40vw, 81vw) minmax(10vw, 30vw)"
+    header.style.gridColumnEnd = '4';
+    content.style.rowGap = '1vw';
+
+    for(i = 0; i < myLibrary.length; i++){
+      let gridItem = document.getElementById('grid-item' + i);
+      let gridItemIcon = document.getElementById('grid-item-icon' + i);
+      gridItem.style.fontSize = '1vw';
+      gridItemIcon.style.width = '4vw';
+      
+    };
   };
 };
 

@@ -238,15 +238,13 @@ ul{
 
 .background1{
     position: relative;
-    grid-column: 2 / 3;
-    grid-row: 2 / 4;
+    height: 100%;
 }
 
 .background2{
     position: relative;
-    grid-column: 2 / 3;
-    grid-row: 4 / 6;
     bottom: 5vw;
+    height: 100%;
 }
 
 .contentGrid{
@@ -294,7 +292,7 @@ ul{
    width: 1vw;
    height: 1vw;
    background-color:#f1f1f1;
-   border: 3px solid lightgray;
+   border: 1vw solid lightgray;
 }
 
 .ad{
@@ -407,19 +405,19 @@ ul{
   .modal .inputColor, .userForm .inputColor{
     appearance: none;
     background-color: transparent;
-    width: 3vw;
-    height: 3vw;
+    width: 5vw;
+    height: 5vw;
     border: none;
     cursor: pointer;
   }
 
   .modal .inputColor::-webkit-color-swatch, .userForm .inputColor::-webkit-color-swatch {
     border-radius: 50%;
-    border: 7px solid #000000;
+    border: .5vw solid #000000;
   }
   .modal .inputColor::-moz-color-swatch, .userForm .inputColor::-moz-color-swatch {
     border-radius: 50%;
-    border: 7px solid #000000;
+    border: .5vw solid #000000;
   }
 
  .inputRadio{
