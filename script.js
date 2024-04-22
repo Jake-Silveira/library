@@ -91,8 +91,12 @@ const changeUserColor = function(event){
 submitBtn.addEventListener('click', () => {
 
   if(userTitle.value !== "" && userAuthor.value !== "" && userPages.value !== ""){
-    addBookToLibrary(userTitle.value, userAuthor.value, userPages.value, inputRead, userColor.value);
-  closeModal();
+    if(typeof inputRead !== 'undefined'){
+      addBookToLibrary(userTitle.value, userAuthor.value, userPages.value, inputRead, userColor.value);
+      closeModal();
+    } else {
+      return alert('Please select a status');
+    }
   } else {
     return alert('Please fill in all fields.');
   };
