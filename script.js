@@ -29,7 +29,7 @@ const userForm = document.querySelector('.userForm');
 const userTitle = document.getElementById('userTitle');
 const userAuthor = document.getElementById('userAuthor');
 const userPages = document.getElementById('userPages');
-const userColor = document.getElementById('userColor').value;
+const userColor = document.getElementById('userColor');
 const userRead = document.getElementById('userRead');
 const userUnread = document.getElementById('userUnread');
 const userInProgress = document.getElementById('userIn-progress');
@@ -62,6 +62,8 @@ const openUserForm = function(){
   userForm.classList.remove("hidden");
   overlay.classList.remove("hidden");
 
+  userColor.addEventListener("change", changeUserColor, false);
+
   userRead.addEventListener("click", function(){
     userUnread.checked = false;
     userInProgress.checked = false;
@@ -82,10 +84,14 @@ const openUserForm = function(){
 
 };
 
+const changeUserColor = function(event){
+  userColor.value = event.target.value;
+};
+
 submitBtn.addEventListener('click', () => {
 
   if(userTitle.value !== "" && userAuthor.value !== "" && userPages.value !== ""){
-    addBookToLibrary(userTitle.value, userAuthor.value, userPages.value, inputRead, userColor);
+    addBookToLibrary(userTitle.value, userAuthor.value, userPages.value, inputRead, userColor.value);
   closeModal();
   } else {
     return alert('Please fill in all fields.');
@@ -93,8 +99,8 @@ submitBtn.addEventListener('click', () => {
   
 });
 
-function addBookToLibrary(inputTitle, inputAuthor, inputPages, inputRead, userColor) {
-  const userBook = new Book(inputTitle, inputAuthor, inputPages, inputRead, userColor, false);
+function addBookToLibrary(inputTitle, inputAuthor, inputPages, inputRead, inputColor) {
+  const userBook = new Book(inputTitle, inputAuthor, inputPages, inputRead, inputColor, false);
   myLibrary.push(userBook);
   displayBooks();
 };
